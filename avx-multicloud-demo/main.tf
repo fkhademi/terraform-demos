@@ -93,3 +93,14 @@ module "spoke1-azure" {
   cidr       = "172.19.2.0/24"
   ha_gw      = false
 }
+
+module "transit-peering" {
+  source  = "terraform-aviatrix-modules/mc-transit-peering/aviatrix"
+  version = "1.0.9"
+
+  transit_gateways = [
+    module.aws_transit.transit_gateway.gw_name,
+    module.gcp_transit.transit_gateway.gw_name,
+    module.azure_transit.transit_gateway.gw_name,
+  ]
+}

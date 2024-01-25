@@ -35,7 +35,7 @@ variable "aws_region" {
 variable "gcp_account_name" {
   type        = string
   description = "GCP Account Name"
-  default     = "gcp"
+  default     = "gcp-acct-1"
 }
 
 variable "gcp_region" {
